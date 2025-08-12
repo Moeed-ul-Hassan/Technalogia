@@ -7,7 +7,7 @@ import Discussions from '@/components/Discussions'
 import Showcase from '@/components/Showcase'
 import Events from '@/components/Events'
 import Sidebar from '@/components/Sidebar'
-import { Tab } from '@headlessui/react'
+
 import { classNames } from '@/lib/utils'
 
 export default function Home() {
@@ -37,43 +37,34 @@ export default function Home() {
               </p>
             </div>
 
-            <Tab.Group selectedIndex={selectedTab} onChange={setSelectedTab}>
-              <Tab.List className="flex space-x-1 rounded-xl bg-white p-1 shadow-sm border border-gray-200">
+            {/* Tab Navigation */}
+            <div className="mb-6">
+              <div className="flex space-x-1 rounded-xl bg-white p-1 shadow-sm border border-gray-200">
                 {tabs.map((tab, idx) => (
-                  <Tab
+                  <button
                     key={tab.name}
-                    className={({ selected }) =>
-                      classNames(
-                        'w-full rounded-lg py-3 px-4 text-sm font-medium leading-5 transition-all duration-200',
-                        'ring-white ring-opacity-60 ring-offset-2 ring-offset-primary-400 focus:outline-none focus:ring-2',
-                        selected
-                          ? 'bg-primary-500 text-white shadow-lg transform scale-105'
-                          : 'text-gray-600 hover:bg-gray-100 hover:text-gray-800'
-                      )
-                    }
+                    onClick={() => setSelectedTab(idx)}
+                    className={classNames(
+                      'w-full rounded-lg py-3 px-4 text-sm font-medium leading-5 transition-all duration-200',
+                      'ring-white ring-opacity-60 ring-offset-2 ring-offset-primary-400 focus:outline-none focus:ring-2',
+                      selectedTab === idx
+                        ? 'bg-primary-500 text-white shadow-lg transform scale-105'
+                        : 'text-gray-600 hover:bg-gray-100 hover:text-gray-800'
+                    )}
                   >
                     <span className="flex items-center justify-center gap-2">
                       <span className="text-lg">{tab.icon}</span>
                       {tab.name}
                     </span>
-                  </Tab>
+                  </button>
                 ))}
-              </Tab.List>
-              
-              <Tab.Panels className="mt-6">
-                {tabs.map((tab, idx) => (
-                  <Tab.Panel
-                    key={idx}
-                    className={classNames(
-                      'rounded-xl bg-white p-6',
-                      'ring-white ring-opacity-60 ring-offset-2 ring-offset-primary-400 focus:outline-none focus:ring-2'
-                    )}
-                  >
-                    {tab.component}
-                  </Tab.Panel>
-                ))}
-              </Tab.Panels>
-            </Tab.Group>
+              </div>
+            </div>
+            
+            {/* Tab Content */}
+            <div className="rounded-xl bg-white p-6 ring-white ring-opacity-60 ring-offset-2 ring-offset-primary-400 focus:outline-none focus:ring-2">
+              {tabs[selectedTab].component}
+            </div>
           </div>
 
           {/* Sidebar */}

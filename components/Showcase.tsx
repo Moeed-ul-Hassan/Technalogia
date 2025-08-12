@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { HeartIcon, ChatBubbleLeftIcon, ShareIcon, PlusIcon, ExternalLinkIcon, CodeBracketIcon, GlobeAltIcon, DevicePhoneMobileIcon } from '@heroicons/react/24/outline'
+import { HeartIcon, ChatBubbleLeftIcon, ShareIcon, PlusIcon, ArrowTopRightOnSquareIcon, CodeBracketIcon, GlobeAltIcon, DevicePhoneMobileIcon } from '@heroicons/react/24/outline'
 import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid'
 import { classNames } from '@/lib/utils'
 
@@ -386,7 +386,7 @@ export default function Showcase() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-primary-100 text-primary-800 hover:bg-primary-200 transition-colors"
                   >
-                    <ExternalLinkIcon className="h-4 w-4 mr-1" />
+                                            <ArrowTopRightOnSquareIcon className="h-4 w-4 mr-1" />
                     Live Demo
                   </a>
                 )}

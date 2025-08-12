@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { FireIcon, UsersIcon, TrophyIcon, StarIcon, TrendingUpIcon, PlusIcon } from '@heroicons/react/24/outline'
+import { FireIcon, UsersIcon, TrophyIcon, StarIcon, ArrowTrendingUpIcon, PlusIcon } from '@heroicons/react/24/outline'
 import { classNames } from '@/lib/utils'
 
 interface Club {
@@ -84,9 +84,9 @@ export default function Sidebar() {
 
   const getTrendIcon = (trend: 'up' | 'down' | 'stable') => {
     switch (trend) {
-      case 'up': return <TrendingUpIcon className="h-4 w-4 text-green-500" />
-      case 'down': return <TrendingUpIcon className="h-4 w-4 text-red-500 transform rotate-180" />
-      case 'stable': return <TrendingUpIcon className="h-4 w-4 text-gray-400" />
+      case 'up': return <ArrowTrendingUpIcon className="h-4 w-4 text-green-500" />
+      case 'down': return <ArrowTrendingUpIcon className="h-4 w-4 text-red-500 transform rotate-180" />
+      case 'stable': return <ArrowTrendingUpIcon className="h-4 w-4 text-gray-400" />
     }
   }
 
